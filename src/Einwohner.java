@@ -11,10 +11,11 @@ public abstract class Einwohner {
     }
 
     private int getEinkommen() {
-        return 0;
+        return this.einkommen;
     }
 
     public int steuer() {
+        zuVersteuern();
         return 0;
     }
 }
