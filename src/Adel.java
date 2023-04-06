@@ -5,6 +5,12 @@ public class Adel extends Einwohner{
 
     @Override
     public int steuer() {
-        return super.steuer();
+        int aktuelleSteuer;
+        if (super.steuer() < 20) {
+            return 20;
+        }else {
+            aktuelleSteuer = (int)(super.zuVersteuern() * 0.1);
+        }
+        return aktuelleSteuer;
     }
 }

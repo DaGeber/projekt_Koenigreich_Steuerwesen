@@ -10,22 +10,22 @@ public class Königreich {
         while (ablauf) {
             System.out.println("Was wollen Sie tun?");
             System.out.println("1. Steuerausgabe");
-            System.out.println("2. Beenden");
+            System.out.println("0. Beenden");
             System.out.print("Eingabe: ");
             int auswahl = eingabe.nextInt();
             switch (auswahl) {
                 case 1:
                     boolean richitgeGruppe = false;
-                    while (!richitgeGruppe){
+                    while (!richitgeGruppe) {
                         System.out.print("Geben Sie die Bevölkerungsgruppe an: ");
                         String gruppe = eingabe.next();
                         switch (gruppe) {
                             case "König":
                                 System.out.print("Geben Sie den Namen an: ");
                                 name = eingabe.next();
-                                System.out.print("Geben Sie das Einkommen an: ");
-                                einkommen = eingabe.nextInt();
-                                einwohner = new König(name,einkommen);
+                                einkommen = 0;
+                                einwohner = new König(name, einkommen);
+                                System.out.println("Steuer: " + einwohner.steuer());
                                 richitgeGruppe = true;
                                 break;
                             case "Adel":
@@ -33,7 +33,8 @@ public class Königreich {
                                 name = eingabe.next();
                                 System.out.print("Geben Sie das Einkommen an: ");
                                 einkommen = eingabe.nextInt();
-                                einwohner = new Adel(name,einkommen);
+                                einwohner = new Adel(name, einkommen);
+                                System.out.println("Steuer: " + einwohner.steuer());
                                 richitgeGruppe = true;
                                 break;
                             case "Bauer":
@@ -41,7 +42,8 @@ public class Königreich {
                                 name = eingabe.next();
                                 System.out.print("Geben Sie das Einkommen an: ");
                                 einkommen = eingabe.nextInt();
-                                einwohner = new Bauer(name,einkommen);
+                                einwohner = new Bauer(name, einkommen);
+                                System.out.println("Steuer: " + einwohner.steuer());
                                 richitgeGruppe = true;
                                 break;
                             case "Leibeigen":
@@ -49,7 +51,8 @@ public class Königreich {
                                 name = eingabe.next();
                                 System.out.print("Geben Sie das Einkommen an: ");
                                 einkommen = eingabe.nextInt();
-                                einwohner = new Leibeigen(name,einkommen);
+                                einwohner = new Leibeigen(name, einkommen);
+                                System.out.println("Steuer: " + einwohner.steuer());
                                 richitgeGruppe = true;
                                 break;
                             default:
@@ -58,12 +61,8 @@ public class Königreich {
                                 break;
                         }
                     }
-
-
-
-
                     break;
-                case 2:
+                case 0:
                     System.out.println("Sie haben das Programm beendet!");
                     ablauf = false;
                     break;

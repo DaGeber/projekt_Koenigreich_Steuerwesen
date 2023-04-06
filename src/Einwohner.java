@@ -7,15 +7,18 @@ public abstract class Einwohner {
     }
     
     public int zuVersteuern() {
-        return getEinkommen();
-    }
-
-    private int getEinkommen() {
         return this.einkommen;
     }
 
     public int steuer() {
-        zuVersteuern();
-        return 0;
+        if (zuVersteuern() > 1){
+            int aktuelleSteuer = (int)(zuVersteuern() * 0.1);
+            return aktuelleSteuer;
+        } else if (zuVersteuern() == 0)
+            return 0;
+
+        return 1;
     }
+
+
 }

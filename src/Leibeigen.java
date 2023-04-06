@@ -5,6 +5,10 @@ public class Leibeigen extends Bauer{
 
     @Override
     public int zuVersteuern() {
-        return super.zuVersteuern();
+        if (super.zuVersteuern() < 120) {
+            return 0;
+        }else {
+            return  super.zuVersteuern() - 120;
+        }
     }
 }
